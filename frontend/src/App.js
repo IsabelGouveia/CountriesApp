@@ -1,23 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
+import React, { useEffect, useState } from 'react';
 
-function App() {
+const App= () => {
+  const [hello, setHello] = useState('')
+
+  useEffect (() => {
+    // Fetch data from my backend
+    fetch(process.env.REACT_APP_BACKEND_API)
+      .then((response) => response.text())
+      .then((data) => {
+        setHello(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>{hello}</h1>
     </div>
   );
 }
