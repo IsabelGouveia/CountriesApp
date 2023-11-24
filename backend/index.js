@@ -1,9 +1,41 @@
 const express = require('express')
+const cors = require('cors')
 const app = express()
+app.use(cors())
 const port = 3001
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
+convertElements = (element) => {
+  return { officialName: element.name.official, region: element.region }
+}
+
+convertToModel = (data) => {
+  if (data.length === 1) {
+    return [convertElements(data[0])]
+  } else {
+    const results = []
+    data.forEach(element => {
+      results.push(convertElements(element))
+    });
+    return results
+  }
+}
+
+app.get('/:name', (req, res) => {
+  fetch('https://restcountries.com/v3.1/name/' + req.params.name)
+    .then((response) => {
+      if (response.ok) {
+        return response.json()
+      } else {
+        throw new Error("Not response", {cause: response});
+      }
+    })
+    .then((data) => {
+      res.send(convertToModel(data));
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(404).send('Not found')
+    });
 })
 
 app.listen(port, () => {
