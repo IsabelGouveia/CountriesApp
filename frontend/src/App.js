@@ -1,41 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
-import React, { useEffect, useState } from 'react';
-import SearchCountry from './js/component/searchCountry';
+import './styles/App.css'
+import React, { useState } from 'react';
+import SearchCountryComponent from './component/searchCountryComponent';
+import { CountryComponent } from './component/countryComponent';
+import { SearchByName } from './services/countryServices';
+
 
 const App = () => {
-  const [countryData, setCountryData] = useState(null);
-  const [input, setInput] = useState('Portugal');
-
-  useEffect(() => {
-    fetchData();
-  }, [input]);
-
-  const fetchData = () => {
-    // Fetch data from my backend
-    fetch(process.env.REACT_APP_BACKEND_API + input)
-      .then((response) => response.json())
-      .then((data) => {
-        setCountryData(data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
+  const [countryData, setCountryData] = useState([]);
+  const [message, setMessage] = useState(null)
 
   const handleSearch = (searchTerm) => {
-    setInput(searchTerm);
+    SearchByName(searchTerm).then(data=> {
+      setMessage(null)
+      if (data.result) {
+        setCountryData(data.countries)
+      } else {
+        setCountryData([])
+        setMessage('Country not found')
+      }
+    });
   };
 
   return (
     <div className="App">
-      <SearchCountry onSearch={handleSearch} />
-      {countryData && (
+      <SearchCountryComponent onSearch={handleSearch} />
+      {countryData && countryData.map((country,index) => (
+        <CountryComponent country={country} key={index}/>
+      ))}
+      {message && (
         <div>
-          <h1>{countryData[0].commonName}</h1>
-          <p>Region: {countryData[0].region}</p>
+          {message}
         </div>
-      )}
+      )} 
     </div>
   );
 };

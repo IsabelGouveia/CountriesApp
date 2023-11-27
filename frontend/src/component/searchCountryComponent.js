@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const SearchCountry = ({ onSearch }) => {
+const SearchCountryComponent = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleInputChange = (e) => {
@@ -12,16 +12,17 @@ const SearchCountry = ({ onSearch }) => {
   };
 
   return (
-    <div>
+    <div className="input-group mb-3" style={{ width: '300px', margin:'20px auto 0' }}>
       <input
+        className="form-control"
         type="text"
         placeholder="Enter country name"
         value={searchTerm}
         onChange={handleInputChange}
       />
-      <button onClick={handleSearch}>Search</button>
+      <button className="btn btn-outline-secondary" type="button" onClick={handleSearch}>Search</button>
     </div>
   );
 };
 
-export default SearchCountry;
+export default SearchCountryComponent;
