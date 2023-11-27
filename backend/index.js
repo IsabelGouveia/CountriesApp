@@ -5,7 +5,7 @@ app.use(cors())
 const port = 3001
 
 convertElements = (element) => {
-  return { officialName: element.name.official, region: element.region }
+  return { commonName: element.name.common, region: element.region }
 }
 
 convertToModel = (data) => {
@@ -34,7 +34,7 @@ app.get('/:name', (req, res) => {
     })
     .catch((error) => {
       console.error(error);
-      res.status(404).send('Not found')
+      res.status(404).send({msg: "Not Found"})
     });
 })
 
