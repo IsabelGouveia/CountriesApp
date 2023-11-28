@@ -5,7 +5,7 @@ app.use(cors())
 const port = 3001
 
 convertElements = (element) => {
-  return { commonName: element.name.common, region: element.region, currencies: element.currencies, capital: element.capital, languages: element.languages, population: element.population, timezones: element.timezones, flagsPng: element.flags.png }
+  return { commonName: element.name.common, region: element.region, currencies: element.currencies, capital: element.capital, languages: element.languages, population: element.population, timezones: element.timezones, flag: element.flag }
 }
 
 

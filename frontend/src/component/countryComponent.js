@@ -26,7 +26,7 @@ export const CountryComponent = ({ country }) => {
             <p>Languages: {languages}</p>
             <p>Population: {country.population}</p>
             <p>Timezone: {timezones}</p>
-            <p>Flags: {country.flagsPng}</p>
+            <p>Flag: {country.flag}</p>
         </div>
     )
 
