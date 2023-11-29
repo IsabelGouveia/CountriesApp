@@ -1,9 +1,10 @@
 # CountriesApp
 
 ## Live Link/Demo
--[Link](https://countryapp-frontend.onrender.com)
--[Live Demo](https://www.awesomescreenshot.com/video/22866083?key=5e9c84ba4f52d1b765e49cd9c9aeaefa)
 
+https://github.com/IsabelGouveia/CountriesApp/assets/131471952/473ff294-374c-4620-957a-caf2475564bc
+
+-[WEBSITE](https://countryapp-frontend.onrender.com)
 ## About the project
 This project emerged as a challenge, with the objective of crafting a frontend user interface. The aim is to allow users to input any country as a string, pushing the display of relevant information about that specific country. 
 
@@ -27,5 +28,32 @@ Get information about countries via a [RESTful API](https://restcountries.eu)
 ## File Structure
 Within the download you'll find the following directories and files:
 
-
-
+project-root
+├── backend
+│   ├── index.js
+│   ├── package-lock.json
+│   └── package.json
+├── frontend
+│   ├── public
+│   │   ├── favicon.ico
+│   │   ├── index.html
+│   │   ├── manifest.json
+│   │   ├── robots.txt
+│   ├── src
+│   │   ├── components
+│   │   │   ├── countryComponent.js
+│   │   │   └── searchCountryComponent.js
+│   │   ├── services
+│   │   │   └── countryServices.js
+│   │   ├── styles
+│   │   │   ├── app.css
+│   │   │   ├── countryComponent.css
+│   │   │   └── index.css
+│   │   ├── app.js
+│   │   └── index.js
+│   ├── .env
+│   ├── .gitignore
+│   ├── package-lock.json
+│   └── package.json
+├── .gitignore
+└── README.md
