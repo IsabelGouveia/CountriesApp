@@ -6,8 +6,9 @@ export const SearchByName = (input) => {
           return response.json()
         } 
       })
-      .then((data) => {
+      .then(async(data) => {
         if (data) {
+          await new Promise(resolve => setTimeout(resolve, 500));
           return {result: true, countries: data}
         } else {
             return {result: false, countries: []}
