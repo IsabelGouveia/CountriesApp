@@ -28,6 +28,7 @@ Get information about countries via a [RESTful API](https://restcountries.eu)
 ## File Structure
 Within the download you'll find the following directories and files:
 
+```plaintext
 project-root
 ├── backend
 │   ├── index.js
@@ -57,3 +58,4 @@ project-root
 │   └── package.json
 ├── .gitignore
 └── README.md
+```
