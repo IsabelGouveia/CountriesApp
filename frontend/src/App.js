@@ -10,15 +10,20 @@ const App = () => {
   const [message, setMessage] = useState(null)
 
   const handleSearch = (searchTerm) => {
-    SearchByName(searchTerm).then(data=> {
-      setMessage(null)
-      if (data.result) {
-        setCountryData(data.countries)
-      } else {
-        setCountryData([])
-        setMessage('Country not found')
-      }
-    });
+    if (searchTerm) {
+      SearchByName(searchTerm).then(data=> {
+        setMessage(null)
+        if (data.result) {
+          setCountryData(data.countries)
+        } else {
+          setCountryData([])
+          setMessage('Country not found')
+        }
+      });
+    } else {
+      setMessage("Please type country")
+    }
+    
   };
 
   return (

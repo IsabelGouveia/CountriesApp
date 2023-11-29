@@ -1,9 +1,19 @@
+/* styles/countryComponent.css */
+
 .countryDetails {
     color: white;
-    
-}
+    width: 350px;
+    padding: 15px;
+  }
+  
 
-p {
-    font: size 14px; 
-}
-
+.country-elements {
+    background-color: rgba(40, 44, 52, 0.8); 
+    border-radius: 10px;
+  }
+  
+.country-elements {
+    border-radius: 0 0 10px 10px; 
+  }
+  
+  

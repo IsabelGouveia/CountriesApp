@@ -12,15 +12,17 @@ const SearchCountryComponent = ({ onSearch }) => {
   };
 
   return (
-    <div className="input-group mb-3" style={{ width: '300px', margin:'20px auto 0' }}>
-      <input
-        className="form-control"
-        type="text"
-        placeholder="Enter country name"
-        value={searchTerm}
-        onChange={handleInputChange}
-      />
-      <button className="btn btn-outline-secondary" type="button" onClick={handleSearch}>Search</button>
+    <div className="input-group-detail">
+      <div className="input-group mb-3" >
+        <input
+          className="form-control"
+          type="text"
+          placeholder="Enter country name"
+          value={searchTerm}
+          onChange={handleInputChange}
+        />
+        <button className="btn btn-outline-secondary" type="button" onClick={handleSearch}>Search</button>
+      </div>
     </div>
   );
 };
